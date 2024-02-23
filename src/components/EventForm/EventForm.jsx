@@ -230,7 +230,7 @@ email_fact:''
               handleMensaje(e);
               handleRegistro(e)
             }} required/>
-        <Form.Check type="radio" label="No" name="afil_cmic"  value="No"  onChange={(e) => {
+        <Form.Check type="radio" label="No" name="carrito"  value="No"  onChange={(e) => {
               handleMensaje(e);
               handleRegistro(e)
             }} required/>
@@ -265,32 +265,37 @@ email_fact:''
   <>
          <Form.Group  className="mb-3" controlId="formBasicEmpresa">
         <Form.Label> Razón Social:</Form.Label>
-        <Form.Control type="text" placeholder="Razón Social:"name="razon_social" value={formData.razon_social} onChange={handleRegistro} />
+        <Form.Control type="text" placeholder="Razón Social:"name="razon_social" value={formData.razon_social} onChange={handleRegistro} required />
       </Form.Group>
 
       <Form.Group  className="mb-3" controlId="formBasicRfc">
-        <Form.Label> Rfc:</Form.Label>
-        <Form.Control type="text" placeholder="Rfc:" name="rfc_fact" value={formData.rfc_fact}  onChange={handleRegistro}/>
+        <Form.Label> RFC:</Form.Label>
+        <Form.Control type="text" placeholder="Rfc:" name="rfc_fact" value={formData.rfc_fact}  onChange={handleRegistro} required/>
       </Form.Group>
 
        <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Domicilio:</Form.Label>
-        <Form.Control type="text" placeholder="Domicilio:" name="dom_fact" value={formData.dom_fact}  onChange={handleRegistro} />
+        <Form.Control type="text" placeholder="Domicilio:" name="dom_fact" value={formData.dom_fact}  onChange={handleRegistro} required/>
+      </Form.Group>
+
+      <Form.Group  className="mb-3" controlId="formBasicCP">
+        <Form.Label> Código Postal:</Form.Label>
+        <Form.Control type="text" placeholder="Código Postal:" name="cod_Fiscal" value={formData.cod_Fiscal}  onChange={handleRegistro} required/>
       </Form.Group>
 
       <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Uso de CFDI:</Form.Label>
-        <Form.Control type="text" placeholder="Uso de CFDI:" name="cfdi_fact" value={formData.cfdi_fact} onChange={handleRegistro} />
+        <Form.Control type="text" placeholder="Uso de CFDI:" name="cfdi_fact" value={formData.cfdi_fact} onChange={handleRegistro} required/>
       </Form.Group>
 
         <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Régimen Fiscal:</Form.Label>
-        <Form.Control type="text" placeholder="Régimen Fiscal:" name="regFiscal_fact" value={formData.regFiscal_fact}  onChange={handleRegistro} />
+        <Form.Control type="text" placeholder="Régimen Fiscal:" name="regFiscal_fact" value={formData.regFiscal_fact}  onChange={handleRegistro} required/>
       </Form.Group>
 
       <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Correo para enviar factura:</Form.Label>
-        <Form.Control type="text" placeholder="Correo para enviar factura:" name="email_fact" value={formData.email_fact}  onChange={handleRegistro} />
+        <Form.Control type="text" placeholder="Correo para enviar factura:" name="email_fact" value={formData.email_fact}  onChange={handleRegistro}required/>
       </Form.Group>
       </>
         )}
