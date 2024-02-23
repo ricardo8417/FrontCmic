@@ -85,16 +85,16 @@ email_fact:''
   setFormData({...formData, [e.target.name]: e.target.value})
   // setMostrarFormulario(e.target.value === 'Si');
  }
- 
 
+ const [mostrarAlerta,setmostrarAlerta]=useState(false)
+ 
+const handleEnviarFormulario = async () => {
+    // Mostrar alerta de confirmación con los datos ingresados
+    setmostrarAlerta(true);
+  };
   const handleSubmit= async (e) =>{
     e.preventDefault();
-     const confirmacion=window.confirm('¿Los datos registrados son correctos?')
-
-  if(!confirmacion){
-    return
-  }
-
+     
     try{
       await axios.post('https://cmicverback-production.up.railway.app/api/registro/Registro',formData);// Envía los datos al backend
      alert('Registro Enviado correctamente')
@@ -305,14 +305,32 @@ email_fact:''
       </>
         )}
 
-
+{mostrarAlerta && (
+        <div>
+          <p>Confirma que los datos son correctos:</p>
+          <p>Nombre Completo: {formData.name_complete}</p>
+          <p>Correo electrónico: {formData.email}</p>
+          <p>Número de Celular: {formData.num_cel}</p>
+          <p>Handicap: {formData.handicap}</p>
+          <p>Talla de Playera: {formData.talla}</p>
+          <p>Carrito: {formData.carrito}</p>
+          <p>Factura: {formData.factura}</p>
+          <button onClick={handleSubmit}>Confirmar y enviar</button>
+          <button onClick={() => setmostrarAlerta(false)}>Cancelar</button>
+        </div>
+      )}
+    
+  
 
 
 {/* Botón de enviar */}
-      <Button variant="primary" type="submit" size='lg'>
+      <Button variant="primary" type="submit" size='lg' onChange={handleEnviarFormulario}>
        Enviar
       </Button>
+  
+
     </Form>    
+    
    
 
     );
