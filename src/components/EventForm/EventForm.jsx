@@ -219,8 +219,16 @@ email_fact:''
 
 <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Label>Requiere Factura:</Form.Label>
-        <Form.Check type="radio" label="Si" name="factura" value="Si"  onChange={handleRegistro} required/>
-        <Form.Check type="radio" label="No" name="factura" value="No" onChange={handleRegistro} required/>
+        <Form.Check type="radio" label="Si" name="factura" value="Si"  onChange={(e)=>{
+          handleChange(e)
+          handleRegistro(e)
+          
+        }} required/>
+        <Form.Check type="radio" label="No" name="factura" value="No" onChange={(e)=>{
+          handleChange(e)
+          handleRegistro(e)
+          
+        }}required/>
         
       </Form.Group>
 
