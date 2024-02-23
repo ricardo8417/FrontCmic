@@ -107,7 +107,7 @@ const handleEnviarFormulario = async () => {
   }
   return (
 
-      <Form className='FormRegistro' onSubmit={handleSubmit}>
+      <Form className='FormRegistro' onSubmit={handleEnviarFormulario}>
                 
       <Form.Group  className="mb-3" controlId="formBasicNombre">
         <Form.Label>Nombre Completo:</Form.Label>
@@ -324,7 +324,7 @@ const handleEnviarFormulario = async () => {
 
 
 {/* Botón de enviar */}
-      <Button variant="primary" type="submit" size='lg' onChange={handleEnviarFormulario}>
+      <Button variant="primary" type="submit" size='lg' >
        Enviar
       </Button>
   
