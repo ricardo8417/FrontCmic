@@ -229,48 +229,54 @@ email_fact:''
          <Form.Group  className="mb-3" controlId="formBasicEmpresa">
         <Form.Label> Razón Social:</Form.Label>
         <Form.Control type="text" placeholder="Razón Social:"name="razon_social" value={formData.razon_social} onChange={(e)=>{
-          handleRegistro(e)
           handleChange(e)
+          handleRegistro(e)
+          
         }} />
       </Form.Group>
 
       <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Rfc:</Form.Label>
         <Form.Control type="text" placeholder="Rfc:" name="rfc_fact" value={formData.rfc_fact}  onChange={(e)=>{
-          handleRegistro(e)
           handleChange(e)
+          handleRegistro(e)
+          
         }}/>
       </Form.Group>
 
        <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Domicilio:</Form.Label>
         <Form.Control type="text" placeholder="Domicilio:" name="dom_fact" value={formData.dom_fact}  onChange={(e)=>{
-          handleRegistro(e)
           handleChange(e)
+          handleRegistro(e)
+          
         }} />
       </Form.Group>
 
       <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Uso de CFDI:</Form.Label>
         <Form.Control type="text" placeholder="Uso de CFDI:" name="cfdi_fact" value={formData.cfdi_fact} onChange={(e)=>{
-          handleRegistro(e)
           handleChange(e)
+          handleRegistro(e)
+          
         }} />
       </Form.Group>
 
         <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Régimen Fiscal:</Form.Label>
         <Form.Control type="text" placeholder="Régimen Fiscal:" name="regFiscal_fact" value={formData.regFiscal_fact}  onChange={(e)=>{
-          handleRegistro(e)
           handleChange(e)
+          handleRegistro(e)
+          
         }} />
       </Form.Group>
 
       <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> Correo para enviar factura:</Form.Label>
         <Form.Control type="text" placeholder="Correo para enviar factura:" name="email_fact" value={formData.email_fact}  onChange={(e)=>{
-          handleRegistro(e)
           handleChange(e)
+          handleRegistro(e)
+          
         }} />
       </Form.Group>
       </>
