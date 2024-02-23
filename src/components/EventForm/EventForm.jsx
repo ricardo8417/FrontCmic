@@ -23,6 +23,11 @@ const handleChange = (e) => {
     
   };
 
+const[mostrarMensaje,setMostrarMensaje]= useState(false)
+
+const handleMensaje=(e)=>{
+setMostrarMensaje(e.target.value === 'Si')
+}
   
 const [mostrarFormDelegacion, setMostrarFormDelegacion] = useState(false);
 
@@ -62,10 +67,12 @@ del_cmic:'',
 int_afil:'',
 handicap:'',
 talla:'',
+carrito:'',
 factura:'',
 razon_social:'',
 rfc_fact:'',
 dom_fact:'',
+cod_Fiscal:'',
 cfdi_fact:'',
 regFiscal_fact:'',
 email_fact:''
@@ -82,7 +89,7 @@ email_fact:''
 
   const handleSubmit= async (e) =>{
     e.preventDefault();
-    console.log('aqui estoy')
+    
     try{
       await axios.post('https://cmicverback-production.up.railway.app/api/registro/Registro',formData);// Envía los datos al backend
      alert('Registro Enviado correctamente')
@@ -216,6 +223,28 @@ email_fact:''
         <Form.Check type="radio" label="EG" name="talla" value="EG" onChange={handleRegistro} required/>
         <Form.Check type="radio" label="EEG" name="talla" value="EEG" onChange={handleRegistro} required/>
       </Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Label>Vas a requerir renta de carrito de golf el día del evento:</Form.Label>
+        <Form.Check type="radio" label="Si" name="carrito"  value="Si"  onChange={(e) => {
+              handleMensaje(e);
+              handleRegistro(e)
+            }} required/>
+        <Form.Check type="radio" label="No" name="afil_cmic"  value="No"  onChange={(e) => {
+              handleMensaje(e);
+              handleRegistro(e)
+            }} required/>
+      </Form.Group>
+
+      {mostrarMensaje && (
+  <> 
+  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+<Form.Label> Tendrá un costo adicional de $600.00 más IVA en caso de requerir factura.</Form.Label>
+
+  </Form.Group>
+  
+  </>
+)}
 
 <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Label>Requiere Factura:</Form.Label>
