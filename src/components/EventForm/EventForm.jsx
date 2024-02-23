@@ -18,10 +18,10 @@ const [camposAdicionales, setCamposAdicionales] = useState({
   });
 
 
-// const handleChange = (e) => {
-//     setMostrarFormulario(e.target.value === 'Si');
+const handleChange = (e) => {
+    setMostrarFormulario(e.target.value === 'Si');
     
-//   };
+  };
 
   
 const [mostrarFormDelegacion, setMostrarFormDelegacion] = useState(false);
