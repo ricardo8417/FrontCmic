@@ -89,7 +89,12 @@ email_fact:''
 
   const handleSubmit= async (e) =>{
     e.preventDefault();
-    
+     const confirmacion=window.confirm('¿Los datos registrados son correctos?')
+
+  if(!confirmacion){
+    return
+  }
+
     try{
       await axios.post('https://cmicverback-production.up.railway.app/api/registro/Registro',formData);// Envía los datos al backend
      alert('Registro Enviado correctamente')
@@ -270,7 +275,7 @@ email_fact:''
 
       <Form.Group  className="mb-3" controlId="formBasicRfc">
         <Form.Label> RFC:</Form.Label>
-        <Form.Control type="text" placeholder="Rfc:" name="rfc_fact" value={formData.rfc_fact}  onChange={handleRegistro} required/>
+        <Form.Control type="text" placeholder="RFC:" name="rfc_fact" value={formData.rfc_fact}  onChange={handleRegistro} required/>
       </Form.Group>
 
        <Form.Group  className="mb-3" controlId="formBasicRfc">
