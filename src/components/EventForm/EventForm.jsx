@@ -84,7 +84,7 @@ email_fact:''
     e.preventDefault();
     console.log('aqui estoy')
     try{
-      await axios.post('http://127.0.0.1:8080/api/registro/Registro',formData);// Envía los datos al backend
+      await axios.post('https://cmicverback-production.up.railway.app/api/registro/Registro',formData);// Envía los datos al backend
      alert('Registro Enviado correctamente')
      // Puedes redirigir al usuario a una página de éxito o hacer cualquier otra acción
     window.location.href= '/registroExitoso';
