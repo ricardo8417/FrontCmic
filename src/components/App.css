@@ -75,13 +75,20 @@ justify-content: center;
 
 
 @media only screen and (max-width: 768px) {
+  .titleCamara{
+  display: flex;
+flex-direction: column;
+ align-items: center;
+ margin-top: 5%;
+ 
+}
   .titleCamara h1{
     text-align: center;
 font-weight: bold;
 font-size: 50px;
 margin: 0;
 padding: 0;
-width: 800px;
+width: 300px;
   }
 .titleRegistro h2{
 margin-top:5%;
