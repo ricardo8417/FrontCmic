@@ -76,6 +76,7 @@ email_fact:''
 
  const handleRegistro=(e)=>{
   setFormData({...formData, [e.target.name]: e.target.value})
+  setMostrarFormulario(e.target.value === 'Si');
  }
  
 
