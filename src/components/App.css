@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+}
+.titleCamara{
+  display: flex;
+
+ align-items: center;
+ margin-top: 5%;
+ 
+}
+ .titleCamara .App-Logo {
+     height: 100px;
+  pointer-events: none;
+ margin-bottom: 5px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-Logo {
+    animation: App-logo-spin infinite 9s linear;
+  }
+}
+ 
+@keyframes App-logo-spin {
+  from {
+    -webkit-transition: 0.5s linear;
+  transition: 0.5s linear;
+  -webkit-transform: perspective(150px) rotateY(0deg);
+  transform: perspective(150px) rotateY(0deg);
+  }
+  to {
+    -webkit-transform: perspective(150px) rotateY(360deg);
+    transform: perspective(150px) rotateY(360deg);
+    
+  }
+}
+
+.titleCamara h1{
+text-align: center;
+font-weight: bold;
+font-size: 50px;
+margin: 0;
+padding: 0;
+width: 800px;
+}
+
+.titleRegistro h2{
+margin-top:5%;
+text-align: center;
+font-weight: bold;
+font-size: 50px;
+font-family: arial narrow bold;
+}
+
+.container{
+ display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;  
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+@media only screen and (max-width: 768px) {
+.titleRegistro h2{
+margin-top:5%;
+font-weight: bold;
+font-size: 28px;
+}
+}
