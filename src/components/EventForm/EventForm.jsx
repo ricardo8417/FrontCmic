@@ -305,7 +305,16 @@ const handleEnviarFormulario = async () => {
       </>
         )}
 
-{mostrarAlerta && (
+
+    
+  
+
+
+{/* Botón de enviar */}
+      <Button variant="primary" type="submit" size='lg' >
+       Enviar
+      </Button>
+  {mostrarAlerta && (
         <div>
           <p>Confirma que los datos son correctos:</p>
           <p>Nombre Completo: {formData.name_complete}</p>
@@ -319,15 +328,6 @@ const handleEnviarFormulario = async () => {
           <button onClick={() => setmostrarAlerta(false)}>Cancelar</button>
         </div>
       )}
-    
-  
-
-
-{/* Botón de enviar */}
-      <Button variant="primary" type="submit" size='lg' >
-       Enviar
-      </Button>
-  
 
     </Form>    
     
