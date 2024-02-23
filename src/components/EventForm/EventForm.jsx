@@ -54,7 +54,7 @@ const handleCampoChangeAfi = (e) => {
     });
   };
 
-  
+  const [isOpen, setIsOpen] = useState(false);
 
 const [formData,setFormData]=useState({
 name_complete:'',
@@ -86,13 +86,13 @@ email_fact:''
   // setMostrarFormulario(e.target.value === 'Si');
  }
 
- const [mostrarAlerta,setmostrarAlerta]=useState(false)
- 
-const handleEnviarFormulario = async () => {
-    // Mostrar alerta de confirmación con los datos ingresados
-    setmostrarAlerta(true);
-  };
-  const handleSubmit= async (e) =>{
+ const ConfirmationAlert = ({ isOpen, onClose, formData }) => {
+  if (!isOpen) {
+    return null;
+  }
+
+
+  const handleConfirm= async (e) =>{
     e.preventDefault();
      
     try{
@@ -100,14 +100,50 @@ const handleEnviarFormulario = async () => {
      alert('Registro Enviado correctamente')
      // Puedes redirigir al usuario a una página de éxito o hacer cualquier otra acción
     window.location.href= '/registroExitoso';
+onClose();
 
     }catch(e){
       console.error('Error:',e)
+      onClose();
     }
   }
+ return (
+    <div className="confirmation-alert">
+      <div className="confirmation-content">
+        <span className="close" onClick={onClose}>&times;</span>
+        <h2>Confirmación de Registro</h2>
+        <p>Por favor, confirma que los datos son correctos:</p>
+        <ul>
+          <li><strong>Nombre Completo:</strong> {formData.name_complete}</li>
+          <li><strong>Correo electrónico:</strong> {formData.email}</li>
+          <li><strong>Número de Celular:</strong> {formData.num_cel}</li>
+          <li><strong>Handicap:</strong> {formData.handicap}</li>
+          <li><strong>Talla de Playera:</strong> {formData.talla}</li>
+          <li><strong>Carrito:</strong> {formData.carrito}</li>
+          <li><strong>Factura:</strong> {formData.factura}</li>
+          
+        </ul>
+        <button onClick={handleConfirm}>Confirmar y enviar</button>
+        <button onClick={onClose}>Editar</button>
+      </div>
+    </div>
+  );
+};
+
+ const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsOpen(true);
+  };
+
+   const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
 
-      <Form className='FormRegistro' onSubmit={handleEnviarFormulario}>
+<div>
+
+      <Form className='FormRegistro' onSubmit={handleSubmit}>
                 
       <Form.Group  className="mb-3" controlId="formBasicNombre">
         <Form.Label>Nombre Completo:</Form.Label>
@@ -314,25 +350,12 @@ const handleEnviarFormulario = async () => {
       <Button variant="primary" type="submit" size='lg' >
        Enviar
       </Button>
-  {mostrarAlerta && (
-        <div>
-          <p>Confirma que los datos son correctos:</p>
-          <p>Nombre Completo: {formData.name_complete}</p>
-          <p>Correo electrónico: {formData.email}</p>
-          <p>Número de Celular: {formData.num_cel}</p>
-          <p>Handicap: {formData.handicap}</p>
-          <p>Talla de Playera: {formData.talla}</p>
-          <p>Carrito: {formData.carrito}</p>
-          <p>Factura: {formData.factura}</p>
-          <button onClick={handleSubmit}>Confirmar y enviar</button>
-          <button onClick={() => setmostrarAlerta(false)}>Cancelar</button>
-        </div>
-      )}
+  
 
     </Form>    
     
-   
-
+   <ConfirmationAlert isOpen={isOpen} onClose={handleClose} formData={formData} />
+</div>
     );
 };
 
