@@ -239,7 +239,7 @@ window.location.href= '/';
       </Form.Group>
 
 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Label>Vas a requerir renta de carrito de golf el día del evento:</Form.Label>
+        <Form.Label>Va a requerir renta de carrito de golf el día del evento:</Form.Label>
         <Form.Check type="radio" label="Si" name="carrito"  value="Si"  onChange={(e) => {
               handleMensaje(e);
               handleRegistro(e)
