@@ -101,25 +101,7 @@ const handleSubmit = (e) => {
     
  setShowModal(false);
  setFormData({
-name_complete:'',
-email:'',
-tel_oficina:'',
-num_cel:'',
-nom_emp:'',
-afil_cmic:'',
-del_cmic:'',
-int_afil:'',
-handicap:'',
-talla:'',
-carrito:'',
-factura:'',
-razon_social:'',
-rfc_fact:'',
-dom_fact:'',
-cod_Fiscal:'',
-cfdi_fact:'',
-regFiscal_fact:'',
-email_fact:''
+...formData
 
  })
 
