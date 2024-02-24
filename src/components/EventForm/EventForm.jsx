@@ -100,29 +100,9 @@ const handleSubmit = (e) => {
      // Puedes redirigir al usuario a una página de éxito o hacer cualquier otra acción
     
  setShowModal(false);
- setFormData({
-...formData,
-name_complete:'',
-email:'',
-tel_oficina:'',
-num_cel:'',
-nom_emp:'',
-afil_cmic:'',
-del_cmic:'',
-int_afil:'',
-handicap:'',
-talla:'',
-carrito:'',
-factura:'',
-razon_social:'',
-rfc_fact:'',
-dom_fact:'',
-cod_Fiscal:'',
-cfdi_fact:'',
-regFiscal_fact:'',
-email_fact:''
+window.location.href= '/';
 
- })
+ 
 
     }catch(e){
       console.error('Error:',e)
