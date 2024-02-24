@@ -349,9 +349,10 @@ email_fact:''
      <Modal show={showModal} onHide={() => setShowModal(false)}>
 <Modal.Header  closeButton>
   <Modal.Title>Confirmación de Registro</Modal.Title>
-  <p>Por favor, confirma que los datos son correctos:</p>
+  
 </Modal.Header>
 <Modal.Body>
+  <p>Por favor, confirma que los datos son correctos:</p>
     <ul>
           <li><strong>Nombre Completo:</strong> {formData.name_complete}</li>
           <li><strong>Correo electrónico:</strong> {formData.email}</li>
