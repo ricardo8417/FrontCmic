@@ -55,8 +55,7 @@ const handleCampoChangeAfi = (e) => {
     });
   };
 
-  const [isOpen, setIsOpen] = useState(false);
-
+const [showModal, setShowModal] = useState(false);
 const [formData,setFormData]=useState({
 name_complete:'',
 email:'',
@@ -87,68 +86,51 @@ email_fact:''
   // setMostrarFormulario(e.target.value === 'Si');
  }
 
- const ConfirmationAlert = ({ isOpen, onClose, formData }) => {
-  if (!isOpen) {
-    return null;
-  }
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+  };
 
   const handleConfirm= async (e) =>{
-    e.preventDefault();
-     
+    
     try{
       await axios.post('https://cmicverback-production.up.railway.app/api/registro/Registro',formData);// Envía los datos al backend
      alert('Registro Enviado correctamente')
      // Puedes redirigir al usuario a una página de éxito o hacer cualquier otra acción
-    window.location.href= '/registroExitoso';
-onClose();
+    
+ setShowModal(false);
+ setFormData({
+name_complete:'',
+email:'',
+tel_oficina:'',
+num_cel:'',
+nom_emp:'',
+afil_cmic:'',
+del_cmic:'',
+int_afil:'',
+handicap:'',
+talla:'',
+carrito:'',
+factura:'',
+razon_social:'',
+rfc_fact:'',
+dom_fact:'',
+cod_Fiscal:'',
+cfdi_fact:'',
+regFiscal_fact:'',
+email_fact:''
+
+ })
 
     }catch(e){
       console.error('Error:',e)
-      onClose();
+      
     }
   }
- return (
-    <div className="modal show" style={{ display: 'block', position: 'initial' }}>
-      <Modal.Dialog>
-<Modal.Header  onClick={onClose}>
-  <Modal.Title>Confirmación de Registro</Modal.Title>
-  <p>Por favor, confirma que los datos son correctos:</p>
-</Modal.Header>
-<Modal.Body>
-    <ul>
-          <li><strong>Nombre Completo:</strong> {formData.name_complete}</li>
-          <li><strong>Correo electrónico:</strong> {formData.email}</li>
-          <li><strong>Número de Celular:</strong> {formData.num_cel}</li>
-          <li><strong>Handicap:</strong> {formData.handicap}</li>
-          <li><strong>Talla de Playera:</strong> {formData.talla}</li>
-          <li><strong>Carrito:</strong> {formData.carrito}</li>
-          <li><strong>Factura:</strong> {formData.factura}</li>
-          
-        </ul>
 
-</Modal.Body>
-<Modal.Footer>
-<button onClick={handleConfirm}>Confirmar y enviar</button>
-        <button onClick={onClose}>Editar</button>
 
-</Modal.Footer>
-
-      </Modal.Dialog>
  
-    </div>
-  );
-};
-
- const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsOpen(true);
-  };
-
-   const handleClose = () => {
-    setIsOpen(false);
-  };
-
   return (
 
 <div>
@@ -364,7 +346,35 @@ onClose();
 
     </Form>    
     
-   <ConfirmationAlert isOpen={isOpen} onClose={handleClose} formData={formData} />
+     <Modal show={showModal} onHide={() => setShowModal(false)}>
+<Modal.Header  closeButton>
+  <Modal.Title>Confirmación de Registro</Modal.Title>
+  <p>Por favor, confirma que los datos son correctos:</p>
+</Modal.Header>
+<Modal.Body>
+    <ul>
+          <li><strong>Nombre Completo:</strong> {formData.name_complete}</li>
+          <li><strong>Correo electrónico:</strong> {formData.email}</li>
+          <li><strong>Número de Celular:</strong> {formData.num_cel}</li>
+          <li><strong>Handicap:</strong> {formData.handicap}</li>
+          <li><strong>Talla de Playera:</strong> {formData.talla}</li>
+          <li><strong>Carrito:</strong> {formData.carrito}</li>
+          <li><strong>Factura:</strong> {formData.factura}</li>
+          
+        </ul>
+
+</Modal.Body>
+<Modal.Footer>
+<Button variant="primary" onClick={handleConfirm}>
+            Confirmar y Enviar
+          </Button>
+        <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Editar
+          </Button>
+
+</Modal.Footer>
+
+      </Modal>
 </div>
     );
 };
