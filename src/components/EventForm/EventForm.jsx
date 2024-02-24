@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import axios from 'axios'
 
 
@@ -108,12 +109,14 @@ onClose();
     }
   }
  return (
-    <div className="confirmation-alert">
-      <div className="confirmation-content">
-        <span className="close" onClick={onClose}>&times;</span>
-        <h2>Confirmación de Registro</h2>
-        <p>Por favor, confirma que los datos son correctos:</p>
-        <ul>
+    <div className="modal show" style={{ display: 'block', position: 'initial' }}>
+      <Modal.Dialog>
+<Modal.Header  onClick={onClose}>
+  <Modal.Title>Confirmación de Registro</Modal.Title>
+  <p>Por favor, confirma que los datos son correctos:</p>
+</Modal.Header>
+<Modal.Body>
+    <ul>
           <li><strong>Nombre Completo:</strong> {formData.name_complete}</li>
           <li><strong>Correo electrónico:</strong> {formData.email}</li>
           <li><strong>Número de Celular:</strong> {formData.num_cel}</li>
@@ -123,9 +126,16 @@ onClose();
           <li><strong>Factura:</strong> {formData.factura}</li>
           
         </ul>
-        <button onClick={handleConfirm}>Confirmar y enviar</button>
+
+</Modal.Body>
+<Modal.Footer>
+<button onClick={handleConfirm}>Confirmar y enviar</button>
         <button onClick={onClose}>Editar</button>
-      </div>
+
+</Modal.Footer>
+
+      </Modal.Dialog>
+ 
     </div>
   );
 };
