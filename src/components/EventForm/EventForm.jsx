@@ -29,6 +29,11 @@ const[mostrarMensaje,setMostrarMensaje]= useState(false)
 const handleMensaje=(e)=>{
 setMostrarMensaje(e.target.value === 'Si')
 }
+
+const[mostrarMensajeAcompanante,setMostrarMensajeAcompanante]= useState(false)
+const handleMensajeAcompanante=(e)=>{
+setMostrarMensajeAcompanante(e.target.value === 'Si')
+}
   
 const [mostrarFormDelegacion, setMostrarFormDelegacion] = useState(false);
 
@@ -66,6 +71,8 @@ afil_cmic:'',
 del_cmic:'',
 int_afil:'',
 handicap:'',
+acompanante:'',
+name_acompanante:'',
 talla:'',
 carrito:'',
 factura:'',
@@ -228,6 +235,30 @@ window.location.href= '/';
         <Form.Label> Handicap:</Form.Label>
         <Form.Control type="text" placeholder="Handicap" name='handicap'  onChange={handleRegistro} required/>
       </Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Label>Ocupa Acompañante:</Form.Label>
+        <Form.Check type="radio" label="Si" name="acompanante"  value="Si"  onChange={(e) => {
+              handleMensajeAcompanante(e);
+              handleRegistro(e)
+            }} required/>
+        <Form.Check type="radio" label="No" name="acompanante"  value="No"  onChange={(e) => {
+              handleMensajeAcompanante(e);
+              handleRegistro(e)
+            }} required/>
+      </Form.Group>
+
+      {mostrarMensajeAcompanante && (
+  <> 
+  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+<Form.Label> Si lleva acompañante,tendrá un costo adicional de $350.00 más IVA en caso de requerir factura.</Form.Label>
+<Form.Label> Nombre del Acompañante:</Form.Label>
+        <Form.Control type="text" placeholder="Nombre del Acompañante" name='name_acompanante'  onChange={handleRegistro} required/>
+  </Form.Group>
+  
+  </>
+)}
+
 
 <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Label>Talla de Playera:</Form.Label>
