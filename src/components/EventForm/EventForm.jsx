@@ -237,7 +237,7 @@ window.location.href= '/';
       </Form.Group>
 
 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Label>Ocupa Acompañante:</Form.Label>
+        <Form.Label>Asiste con acompañante para la comida de premiación:</Form.Label>
         <Form.Check type="radio" label="Si" name="acompanante"  value="Si"  onChange={(e) => {
               handleMensajeAcompanante(e);
               handleRegistro(e)
