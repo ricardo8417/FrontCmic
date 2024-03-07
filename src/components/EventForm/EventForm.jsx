@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom'
 
 import './EventForm.css'
 const EventForm = () => {
@@ -18,7 +18,7 @@ const [camposAdicionales, setCamposAdicionales] = useState({
     // Agrega más campos según sea necesario
   });
 
-
+  const navigate = useNavigate();
 const handleChange = (e) => {
     setMostrarFormulario(e.target.value === 'Si');
     
@@ -105,9 +105,8 @@ const handleSubmit = (e) => {
       await axios.post('https://cmicverback-production.up.railway.app/api/registro/Registro',formData);// Envía los datos al backend
      alert('Registro Enviado correctamente')
      // Puedes redirigir al usuario a una página de éxito o hacer cualquier otra acción
-    
+     navigate('/registroExitoso');
  setShowModal(false);
-window.location.href= '/';
 
  
 
