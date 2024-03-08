@@ -1,0 +1,16 @@
+.container-Registro{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+        
+}
+.container-Registro h2{
+    font-weight: bold;
+}
+
+.container-Registro .descrip-Registro{
+    margin-top: 5%;
+    font-size: 25px;
+}
