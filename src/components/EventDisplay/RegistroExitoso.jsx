@@ -1,6 +1,6 @@
 import React from 'react';
 import {Banner}  from '../Banner/Banner.jsx';
-import {Footer}  from '../Footer/Footer.jsx';
+
 import './RegistroExitoso.css'
 
 
@@ -17,7 +17,6 @@ const RegistroExitoso = () => {
       </div>
         
 
-      <Footer />
     </div>
     
   );
