@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container-Registro{
     display: flex;
     flex-direction: column;
@@ -13,4 +14,21 @@
 .container-Registro .descrip-Registro{
     margin-top: 5%;
     font-size: 25px;
+=======
+.container-Registro{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+        
+}
+.container-Registro h2{
+    font-weight: bold;
+}
+
+.container-Registro .descrip-Registro{
+    margin-top: 5%;
+    font-size: 25px;
+>>>>>>> 8e2298aeb92edde4976ac19f291ae03c70135aaa
 }

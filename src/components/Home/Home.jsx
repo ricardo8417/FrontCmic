@@ -1,6 +1,5 @@
 import React from "react";
 import { Banner } from "../Banner/Banner.jsx";
-
 import EventForm from "../EventForm/EventForm.jsx";
 import Logo from "../../Public/img/logo.png";
 
