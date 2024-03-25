@@ -22,11 +22,11 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     try{
       await axios.post('https://cmicverback-production.up.railway.app/api/Login/login',formData);// Envía los datos al backend
-     
-     // Puedes redirigir al usuario a una página de éxito o hacer cualquier otra acción
-     navigate('/Dashboard');
+     localStorage.setItem('user',JSON.stringify(formData))
+     localStorage.removeItem('user')
+    navigate('/dashboard');
     }catch(e){
-      console.error('Error:',e)
+      console.error('Error de inicio de sesión:',e)
       
     }
   };
