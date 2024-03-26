@@ -55,13 +55,16 @@ const handleLogout =async()=>{
       <Divider />
       {secondarylinksArray.map(({ icon, label}) => (
         <div className="LinkContainer" key={label}>
-          <NavLink
+          {/* <NavLink //en vez de englobar la función del navlink  englobarla en un elemento boton
             to={handleLogout}
             className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
           >
             <div className="Linkicon">{icon}</div>
             {sidebarOpen && <span>{label}</span>}
-          </NavLink>
+          </NavLink> */}
+          <button onClick={handleLogout}>
+               Logout
+          </button>
         </div>
       ))}
       <Divider />

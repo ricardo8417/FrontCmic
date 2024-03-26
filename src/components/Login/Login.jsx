@@ -23,7 +23,7 @@ const handleSubmit = async (e) => {
     try{
       await axios.post('https://cmicverback-production.up.railway.app/api/Login/login',formData);// Envía los datos al backend
      localStorage.setItem('user',JSON.stringify(formData))
-     localStorage.removeItem('user')
+    //  localStorage.removeItem('user')
     navigate('/dashboard');
     }catch(e){
       console.error('Error de inicio de sesión:',e)
