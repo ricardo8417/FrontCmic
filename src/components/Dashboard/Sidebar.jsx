@@ -25,6 +25,7 @@ const navigate = useNavigate();
 const handleLogout =async()=>{
     try{
         await axios.get('https://cmicverback-production.up.railway.app/api/Login/logout')
+        localStorage.removeItem('user')
         navigate('/login');
     }catch(e){
     console.error('Error durante el logout',e)
