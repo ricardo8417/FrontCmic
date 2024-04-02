@@ -13,18 +13,17 @@ const App = () => {
    const [user,setUser]= useLocalStorage('user');
 
     return (
-        
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path='/login' element={<Login />} />
-                <Route element={<RoutePrivated canActive={user} />}>
-                <Route path ='/dashboard' element={<Dashboard />} />
-                </Route>         
-                <Route path="/registroExitoso" element={<RegistroExitoso/>} />
-            </Routes>
-            <Footer />
-        </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+                    <Route element={<RoutePrivated canActive={user} />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+          <Route path="/registroExitoso" element={<RegistroExitoso />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     );
 };
 
