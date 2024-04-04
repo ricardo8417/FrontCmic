@@ -62,6 +62,13 @@ const handleCampoChangeAfi = (e) => {
     });
   };
 
+const [mostrarMensajeTalla, setMostrarMensajeTalla] =
+  useState(false);
+const handleMensajeTalla = (e) => {
+  setMostrarMensajeTalla(e.target.value === "S" || "M" || "G" || "EG" || "EEG");
+};
+
+
 const [showModal, setShowModal] = useState(false);
 const [formData,setFormData]=useState({
 name_complete:'',
@@ -360,7 +367,10 @@ const handleSubmit = (e) => {
             label="S"
             name="talla"
             value="S"
-            onChange={handleRegistro}
+            onChange={(e) => {
+              handleMensajeTalla(e);
+              handleRegistro(e);
+            }}
             required
           />
           <Form.Check
@@ -368,7 +378,10 @@ const handleSubmit = (e) => {
             label="M"
             name="talla"
             value="M"
-            onChange={handleRegistro}
+            onChange={(e) => {
+              handleMensajeTalla(e);
+              handleRegistro(e);
+            }}
             required
           />
           <Form.Check
@@ -376,7 +389,10 @@ const handleSubmit = (e) => {
             label="G"
             name="talla"
             value="G"
-            onChange={handleRegistro}
+            onChange={(e) => {
+              handleMensajeTalla(e);
+              handleRegistro(e);
+            }}
             required
           />
           <Form.Check
@@ -384,7 +400,10 @@ const handleSubmit = (e) => {
             label="EG"
             name="talla"
             value="EG"
-            onChange={handleRegistro}
+            onChange={(e) => {
+              handleMensajeTalla(e);
+              handleRegistro(e);
+            }}
             required
           />
           <Form.Check
@@ -392,10 +411,22 @@ const handleSubmit = (e) => {
             label="EEG"
             name="talla"
             value="EEG"
-            onChange={handleRegistro}
+            onChange={(e) => {
+              handleMensajeTalla(e);
+              handleRegistro(e);
+            }}
             required
           />
         </Form.Group>
+        {mostrarMensajeTalla && (
+          <>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Label>
+                Si su registro es después del 15 de Abril, la talla de su camisa estará sujeta a disponibilidad.
+              </Form.Label>
+            </Form.Group>
+          </>
+        )}
 
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Label>
@@ -429,7 +460,6 @@ const handleSubmit = (e) => {
           <>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Label>
-                {" "}
                 Tendrá un costo adicional de $600.00 más IVA en caso de requerir
                 factura.
               </Form.Label>
