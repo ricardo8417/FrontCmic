@@ -116,7 +116,7 @@ const handleSubmit = (e) => {
         "https://backcmicver-production.up.railway.app/api/registro/Registro",
         formData
       );// Envía los datos al backend
-     alert('Registro Enviado correctamente')
+     
      // Puedes redirigir al usuario a una página de éxito o hacer cualquier otra acción
      navigate('/registroExitoso');
  setShowModal(false);
