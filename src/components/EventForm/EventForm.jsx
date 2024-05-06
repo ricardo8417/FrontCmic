@@ -345,7 +345,7 @@ const handleSubmit = (e) => {
           <>
             <Form.Group className="mb-3" controlId="formBasicAcompanante">
               <Form.Label>
-                {" "}
+                
                 Si lleva acompañante,tendrá un costo adicional de $350.00 más
                 IVA en caso de requerir factura.
               </Form.Label>
