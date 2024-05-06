@@ -113,7 +113,7 @@ const handleSubmit = (e) => {
      setIsLoading(true);
     try{
       await axios.post(
-        "https://backcmicver-production.up.railway.app/api/registro/Registro",
+        "https://cmicverback-production.up.railway.app/api/registro/Registro",
         formData
       );// Envía los datos al backend
      
@@ -345,7 +345,6 @@ const handleSubmit = (e) => {
           <>
             <Form.Group className="mb-3" controlId="formBasicAcompanante">
               <Form.Label>
-                
                 Si lleva acompañante,tendrá un costo adicional de $350.00 más
                 IVA en caso de requerir factura.
               </Form.Label>
@@ -425,7 +424,8 @@ const handleSubmit = (e) => {
           <>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Label>
-                Si su registro es después del 15 de Abril, la talla de su camisa estará sujeta a disponibilidad.
+                Si su registro es después del 15 de Abril, la talla de su camisa
+                estará sujeta a disponibilidad.
               </Form.Label>
             </Form.Group>
           </>
